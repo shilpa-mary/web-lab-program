@@ -1,0 +1,59 @@
+<html>
+<head>
+<title>validating form</title>
+<script>
+function validate()
+{
+var name=document.forms["frm"]["name"].value;
+var contact=document.forms["frm"]["contact"].value;
+var email=document.forms["frm"]["mail"].value;
+var phoneno=/^\d{10}$/;
+var mailformat=/^\w+([\.-]?\w+)*@\w+([\.-]?w+)*(\.\w{2,3})+$/;
+if(name==" ")
+{
+alert("name cannot be empty");
+return false;
+}
+if(contact=="")
+{
+alert("contact cannot be empty");
+return false;
+}
+else if(!(contact.match(phoneno)))
+{
+alert("invalid contact number");
+return false;
+}
+if(email=="")
+{
+alert("email cannot be empty");
+return false;
+}
+else if(!(email.match(mailformat)))
+{
+alert("invalid emailid");
+return false;
+}
+else
+{
+alert("successfully submitted")
+}
+}
+</script>
+</head>
+<body style="text-align:center;">
+<b>FORM VALIDATION</b><br>
+<br>
+<form name="frm" onsubmit="return validate()">
+<b>
+name:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="text" name="name"><br>
+mobile no:
+<input type="text" name="contact"><br>
+email:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="email"name="mail"><br>
+<input type="submit" value="submit">
+</b>
+</form>
+</body>
+</html>
